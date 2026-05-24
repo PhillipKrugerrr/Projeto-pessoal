@@ -27,9 +27,11 @@ body {
    LAYOUT
    ===================== */
 header {
+    position: relative;
     background-color: var(--color-primary);
     padding: 20px;
     text-align: center;
+    
 }
 
 header h1 {
@@ -262,4 +264,22 @@ input[type="checkbox"] {
 .show {
     opacity: 1;
     transform: translateY(0);
+}
+
+#theme-toggle {
+        position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.dark-theme {
+        --color-bg: #121212;
+    --color-text: #f5f5f5;
+    --color-section-bg: #1e1e1e;
+    --color-primary: #1f4f8f;
+    --color-primary-light: #456a98;
 }

@@ -1,13 +1,25 @@
-const sections = document.querySelector(".hideen");
+const sections = document.querySelectorAll(".hidden");
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if(entry.isIntersecting) {
-            entry.target.classList.add(".show");
+            entry.target.classList.add("show");
         }
     })
 });
 
 sections.forEach(section => {
     observer.observe(section);
+});
+
+const themeBtn = document.getElementById("theme-toggle");
+
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+
+    if (document.body.classList.contains("dark-theme")) {
+        themeBtn.textContent = "Light Mode";
+    } else {
+        themeBtn.textContent = "Dark Mode";
+    }
 });
