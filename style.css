@@ -42,6 +42,8 @@ html {
 }   
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: "DM Serif Text", serif;
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -53,8 +55,12 @@ body {
 header {
     padding: 20px;
     text-align: center;
-    position: sticky;
+
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+
     z-index: 1000;
 
     backdrop-filter: blur(10px);
@@ -95,7 +101,7 @@ header nav a:hover {
 
 main {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 120px auto 0;
     padding: 20px;
 }
 
@@ -125,8 +131,14 @@ section {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 30px;
-    transition: 0.3s ease;
-
+    
+    transition: 
+        transform 0.3s ease,
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+        
     scroll-margin-top: 130px;
 }
 
@@ -136,6 +148,12 @@ section:hover {
 
 .dark-theme section {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
 }
 
 /* =====================
@@ -288,9 +306,6 @@ input[type="checkbox"] {
         RESPONSIVIDADE
       ===================== */
    @media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
 
     header { 
         padding: 15px 10px;
@@ -341,12 +356,6 @@ input[type="checkbox"] {
     }
 }
 
-.hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
 .show {
     opacity: 1;
     transform: translateY(0);
@@ -371,19 +380,4 @@ transition:
 
 #theme-toggle:hover {
     transform: rotate(15deg) scale(1.1);
-}
-
-body,
-section,
-header,
-footer,
-button,
-a,
-input,
-textarea {
-    transition:
-        background-color 0.4s ease,
-        color 0.4s ease,
-        border-color 0.4s ease,
-        box-shadow 0.4s ease;
 }
