@@ -1,3 +1,5 @@
+(() => {
+
 history.scrollRestoration = "manual";
 
 const sections = document.querySelectorAll(".hidden");
@@ -72,3 +74,5 @@ document.querySelector('#contact-form').addEventListener('submit', function(e) {
         console.error(error);
     });
 });
+
+})()
