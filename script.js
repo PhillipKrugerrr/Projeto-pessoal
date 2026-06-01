@@ -35,3 +35,30 @@ themeBtn.addEventListener("click", () => {
         localStorage.setItem("theme", "light");
     }
 });
+
+emailjs.init('HM8UcAVStorS8yx0w');
+
+document.querySelector('#contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const checkbox = document.querySelector('#termos');
+    if (!checkbox.checked) {
+        alert('Please accept the terms before submitting.');
+        return;
+    }
+
+    emailjs.send('service_2l6d4jn', 'template_0wa6op2', {
+        name: document.querySelector('#nome').value,
+        email: document.querySelector('#email').value,
+        subject: document.querySelector('#assunto').value,
+        message: document.querySelector('#mensagem').value,
+    })
+    .then(() => {
+        alert('Message sent successfully!');
+        this.reset();
+    })
+    .catch((error) => {
+        alert('Something went wrong. Please try again.');
+        console.error(error);
+    });
+});
