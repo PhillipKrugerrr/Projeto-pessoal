@@ -41,6 +41,16 @@ emailjs.init('HM8UcAVStorS8yx0w');
 document.querySelector('#contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
+    const nome = document.querySelector('#nome').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const assunto = document.querySelector('#assunto').value.trim();
+    const mensagem = document.querySelector('#mensagem').value.trim();
+
+    if (!nome || !email || !assunto || !mensagem) {
+        alert('Please fill in all fields before submitting.');
+        return; 
+    }
+
     const checkbox = document.querySelector('#termos');
     if (!checkbox.checked) {
         alert('Please accept the terms before submitting.');
